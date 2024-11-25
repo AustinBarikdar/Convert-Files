@@ -26,6 +26,12 @@ class ConverterGui:
 
         self.root.mainloop()
 
+        self.buttonFrame = tk.Frame(self.root)
+        
+        self.buttonFrame.columnconfigure(0,weight=1)
+        self.buttonFrame.columnconfigure(1,weight=1)
+        self.buttonFrame.columnconfigure(2,weight=1)
+
     def select_file(self):
         print(self)
         file_path = filedialog.askopenfilename()
