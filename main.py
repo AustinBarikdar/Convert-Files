@@ -73,7 +73,7 @@ class ConverterGui:
                 for fmt in image_formats:
                     if file_name[1:].upper() != fmt:
                         try:
-                            # image.save(f"output.{fmt.lower()}", fmt)
+                           
                             print(f" - {fmt}: Supported")
                             btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(file_path,fmt) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
@@ -94,7 +94,7 @@ class ConverterGui:
                 for fmt in audio_formats:
                     if file_name[1:].upper() != fmt:
                         try:
-                            # image.save(f"output.{fmt.lower()}", fmt)
+                            
                             print(f" - {fmt}: Supported")
                             btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_audio(file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
