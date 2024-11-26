@@ -5,14 +5,11 @@ from tkinter import filedialog
 from PIL import Image
 import ConversionFile 
 
-image_formats = ["JPEG", "PNG", "BMP", "GIF", "TIFF","JPG","WEBP","PDF"]
+image_formats = ["JPEG", "PNG", "BMP", "GIF", "TIFF","JPG","WEBP"]
 
 audio_formats = ["MP3", "WAV", "OGG", "FLAC", "AAC"]
 
-
-# input_file = "example.jpeg"
-# image = Image.open(input_file)
-
+doucment_formats = ["DOCX", "PDF", "PLAIN", "HTML"]
 
 class ConverterGui:
     
@@ -109,8 +106,28 @@ class ConverterGui:
                            
                         except Exception as e:
                             print(f" - {fmt}: Not supported ({e})")
+            if file_name[1:].upper() in doucment_formats:
+
+                for fmt in doucment_formats:
+                    if file_name[1:].upper() != fmt:
+                        try:
+                            
+                            print(f" - {fmt}: Supported")
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_documents(file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
+                            btn['background'] = '#1f1f1f'
+                            btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
+                            self.file_buttons[fmt] = btn
+                            
+                            clounmNumber += 1
+                            if clounmNumber == 3:
+                                clounmNumber = 0
+                                rownumber += 1
+                           
+                           
+                        except Exception as e:
+                            print(f" - {fmt}: Not supported ({e})")
             
-            print(self.file_buttons)
+            
         else:
             self.label_file.config(text="No file selected.")
             self.file_type.config(text="File Type: None")
