@@ -11,6 +11,8 @@ audio_formats = ["MP3", "WAV", "OGG", "FLAC", "AAC"]
 
 doucment_formats = ["DOCX", "PDF", "PLAIN", "HTML"]
 
+video_formats = ["MP4", "MVK", "AVI", "MOV","MP3","WAV"]
+
 class ConverterGui:
     
     def __init__(self):
@@ -53,8 +55,8 @@ class ConverterGui:
         self.root.mainloop()
 
     def select_file(self):
-        print(self)
         file_path = filedialog.askopenfilename()
+        
         if file_path:
 
             file_extension, file_name = os.path.splitext(file_path)
@@ -69,13 +71,12 @@ class ConverterGui:
             rownumber = 0
             
             if file_name[1:].upper() in image_formats:
-                print("Image")
 
                 for fmt in image_formats:
                     if file_name[1:].upper() != fmt:
                         try:
                            
-                            print(f" - {fmt}: Supported")
+                        
                             btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(self,file_path,fmt) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
@@ -96,7 +97,7 @@ class ConverterGui:
                     if file_name[1:].upper() != fmt:
                         try:
                             
-                            print(f" - {fmt}: Supported")
+                            
                             btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_audio(self,file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
@@ -116,7 +117,7 @@ class ConverterGui:
                     if file_name[1:].upper() != fmt:
                         try:
                             
-                            print(f" - {fmt}: Supported")
+                            
                             btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_documents(self, file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
@@ -130,6 +131,29 @@ class ConverterGui:
                            
                         except Exception as e:
                             print(f" - {fmt}: Not supported ({e})")
+            
+
+
+            if file_name[1:].upper() in video_formats:
+                if file_name != ".mp3":
+                    for fmt in video_formats:
+                        if file_name[1:].upper() != fmt:
+                            try:
+                            
+                                
+                                btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_video(self, file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
+                                btn['background'] = '#1f1f1f'
+                                btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
+                                self.file_buttons[fmt] = btn
+                            
+                                clounmNumber += 1
+                                if clounmNumber == 3:
+                                    clounmNumber = 0
+                                    rownumber += 1
+                           
+                           
+                            except Exception as e:
+                                print(f" - {fmt}: Not supported ({e})")
             
             
         else:
