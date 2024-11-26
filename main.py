@@ -46,6 +46,10 @@ class ConverterGui:
 
         self.buttonFrame.pack(fill="x")
 
+        self.results = tk.Label(self.root, text="", pady=10)
+        self.results.pack(padx= 10,pady=10)
+        self.results['background'] = '#1f1f1f'
+        
         self.root.mainloop()
 
     def select_file(self):
@@ -72,7 +76,7 @@ class ConverterGui:
                         try:
                            
                             print(f" - {fmt}: Supported")
-                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(file_path,fmt) ,highlightbackground = '#1f1f1f' )
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(self,file_path,fmt) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                             self.file_buttons[fmt] = btn
@@ -93,7 +97,7 @@ class ConverterGui:
                         try:
                             
                             print(f" - {fmt}: Supported")
-                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_audio(file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_audio(self,file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                             self.file_buttons[fmt] = btn
@@ -113,7 +117,7 @@ class ConverterGui:
                         try:
                             
                             print(f" - {fmt}: Supported")
-                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_documents(file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_documents(self, file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                             self.file_buttons[fmt] = btn
