@@ -30,11 +30,10 @@ def file_convert_audio(self,file_path,file_type,file_name):
         self.results.config(text = "Error!")
 def file_convert_documents(self,file_path,file_type,file_name):
 
-    extra_args = ['--pdf-engine=xelatex'] 
     try:
         print(str(file_name) + "." + file_type.lower())
         self.results.config(text = "Proccessing")
-        pypandoc.convert_file(file_path, file_type.lower(), outputfile= (str(file_name) + "." + file_type.lower()),extra_args= extra_args)
+        pypandoc.convert_file(file_path, file_type.lower(), outputfile= (str(file_name) + "." + file_type.lower()))
         self.results.config(text = "Successful!")
     except:
         self.results.config(text = "Error!")
