@@ -14,3 +14,9 @@ doucment_formats = ["DOCX", "PDF", "PLAIN", "HTML"]
 video_formats = ["MP4", "MVK", "AVI", "MOV","MP3","WAV"]
 
 ```
+ATTENTION:
+
+IF YOU WISH USE THE DOCUMENT CONVERTER , YOU MUST HAVE FFMEPG DOWNLOADED!
+
+Link: https://www.ffmpeg.org/download.html
+
