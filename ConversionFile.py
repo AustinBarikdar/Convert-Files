@@ -7,12 +7,12 @@ import time
 
 result = None
 
-def file_convert_image(self,file_path,file_type):
+def file_convert_image(self,file_path,file_type,file_name):
     try:
         image = Image.open(file_path)
 
         self.results.config(text = "Proccessing")
-        image.save(f"{file_path[0:file_path.rfind("/") + 1]}Output.{file_type.lower()}", file_type)
+        image.save(f"{file_path[0:file_path.rfind("/") + 1]}{str(file_path[file_path.rfind("/") + 1:file_path.rfind(".")])}.{file_type.lower()}", file_type)
 
         self.results.config(text = "Successful!")
     except:
@@ -44,6 +44,7 @@ def file_convert_video(self,file_path,file_type,file_name):
     try:
         print(str(file_name) + "." + file_type.lower())
         self.results.config(text = "Proccessing")
+        
         if file_type.lower() != "mp3":
             clip = VideoFileClip(file_path)
             

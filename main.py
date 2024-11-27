@@ -48,7 +48,7 @@ class ConverterGui:
 
         self.buttonFrame.pack(fill="x")
 
-        self.results = tk.Label(self.root, text="", pady=10)
+        self.results = tk.Label(self.root, text="", pady=10,fg = "White")
         self.results.pack(padx= 10,pady=10)
         self.results['background'] = '#1f1f1f'
         
@@ -77,7 +77,7 @@ class ConverterGui:
                         try:
                            
                         
-                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(self,file_path,fmt) ,highlightbackground = '#1f1f1f',fg = "White" )
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(self,file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f',fg = "White" )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                             self.file_buttons[fmt] = btn
