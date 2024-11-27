@@ -23,19 +23,19 @@ class ConverterGui:
         self.root.geometry("600x400")
         self.root['background'] = '#1f1f1f'
 
-        self.titleLabel = tk.Label(self.root, text = "Convert Files",font=("Arial",18))
+        self.titleLabel = tk.Label(self.root, text = "Convert Files",font=("Arial",18),fg = "White")
         self.titleLabel.pack(padx= 10,pady=10)
         self.titleLabel['background'] = '#1f1f1f'
 
-        self.SelectButtonFile = tk.Button(self.root, text="Select File", command= self.select_file,highlightbackground = '#1f1f1f' )
+        self.SelectButtonFile = tk.Button(self.root, text="Select File", command= self.select_file,highlightbackground = '#1f1f1f',fg = "White")
         self.SelectButtonFile['background'] = '#1f1f1f'
         self.SelectButtonFile.pack(padx= 10,pady=10)
 
-        self.label_file = tk.Label(self.root, text="No file selected.", pady=10)
+        self.label_file = tk.Label(self.root, text="No file selected.", pady=10,fg = "White" )
         self.label_file.pack()
         self.label_file['background'] = '#1f1f1f'
 
-        self.file_type = tk.Label(self.root, text="File Type: None", pady=10)
+        self.file_type = tk.Label(self.root, text="File Type: None", pady=10,fg = "White")
         self.file_type.pack()
         self.file_type['background'] = '#1f1f1f'
 
@@ -77,7 +77,7 @@ class ConverterGui:
                         try:
                            
                         
-                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(self,file_path,fmt) ,highlightbackground = '#1f1f1f' )
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_image(self,file_path,fmt) ,highlightbackground = '#1f1f1f',fg = "White" )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                             self.file_buttons[fmt] = btn
@@ -98,7 +98,7 @@ class ConverterGui:
                         try:
                             
                             
-                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_audio(self,file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_audio(self,file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f',fg = "White" )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                             self.file_buttons[fmt] = btn
@@ -118,7 +118,7 @@ class ConverterGui:
                         try:
                             
                             
-                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_documents(self, file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
+                            btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_documents(self, file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f',fg = "White" )
                             btn['background'] = '#1f1f1f'
                             btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                             self.file_buttons[fmt] = btn
@@ -141,7 +141,7 @@ class ConverterGui:
                             try:
                             
                                 
-                                btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_video(self, file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f' )
+                                btn = tk.Button(self.buttonFrame, text = f"Convert to {fmt}" , command= lambda fmt=fmt: ConversionFile.file_convert_video(self, file_path,fmt,file_extension) ,highlightbackground = '#1f1f1f',fg = "White" )
                                 btn['background'] = '#1f1f1f'
                                 btn.grid(row = rownumber,column = clounmNumber, sticky ="nsew")
                                 self.file_buttons[fmt] = btn
