@@ -11,7 +11,7 @@ audio_formats = ["MP3", "WAV", "OGG", "FLAC", "AAC"]
 
 doucment_formats = ["DOCX", "PDF", "PLAIN", "HTML"]
 
-video_formats = ["MP4", "MVK", "AVI", "MOV","MP3","WAV"]
+video_formats = ["MP4", "MVK", "AVI", "MOV","MP3","WAV"] #MUST HAVE FFMPEG DOWNLOADED.
 
 ```
 ATTENTION:
